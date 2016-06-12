@@ -27,7 +27,7 @@ BinaryHeapTree.prototype = {
     if (this.tree.length > index) {
       return Math.floor((index-1)/2);
     } else {
-      return -1;
+      return null;
     }
   },
 
@@ -42,8 +42,8 @@ BinaryHeapTree.prototype = {
   // Pops off the root node then moves the last node to the root
   //  and restores heap order
   pop: function () {
-    var value = this.tree[0];
-    var last = this.tree.pop();
+    var value = this.tree[0]
+      , last = this.tree.pop();
 
     if (this.tree.length > 0) {
       this.tree[0] = last;
@@ -55,15 +55,12 @@ BinaryHeapTree.prototype = {
 
   // Float a value to maintain the heap
   float: function (index) {
-    var value = this.tree[index];
+    var value = this.tree[index]
+      , parentIndex = this.parent(index)
+      , parentValue = this.tree[parentIndex];
 
-    var parentIndex = this.parent(index);
-
-    if (parentIndex != -1 && this.tree[parentIndex] >= value) {
-      var parentValue = this.tree[parentIndex];
-      this.tree[parentIndex] = value;
-      this.tree[index] = parentValue;
-
+    if (parentIndex > -1 && this.tree[parentIndex] >= value) {
+      this.swap(parentIndex, index);
       this.float(parentIndex);
     }
 
@@ -71,25 +68,25 @@ BinaryHeapTree.prototype = {
 
   // Sink a value to maintain the heap
   sink: function (index) {
-    var size = this.tree.length;
-    var value = this.tree[index];
+    var value = this.tree[index]
+      , lchild = this.lchild(index)
+      , rchild = this.rchild(index)
+      , lchildValue = lchild ? this.tree[lchild] : null
+      , rchildValue = rchild ? this.tree[rchild] : null
+      , swapIndex = null;
 
-    if (this.lchild(index) < size) {
-      var lchildValue = this.tree[this.lchild(index)];
-      if (lchildValue < value) {
-        this.swap(this.lchild(index), index);
-        this.sink(this.lchild(index));
-      }
-    } else if (this.rchild(index) < size) {
-      var rchildValue = this.tree[this.rchild(index)];
-      if (rchildValue < value) {
-        this.swap(this.rchild(index), index);
-        this.sink(this.rchild(index));
-      }
-    } else {
-      this.tree.push(value);
+    if (lchild && !rchild && lchildValue < value) {
+      this.swap(lchild, index);
+      this.sink(lchild);
+      return true;
     }
 
+    if (lchild && rchild && (value > lchildValue || value > rchildValue)) {
+      swapIndex = (lchildValue <= rchildValue ? lchild : rchild);
+      this.swap(swapIndex, index);
+      this.sink(swapIndex);
+      return true;
+    }
   },
 
   // Swaps two nodes given their indexes
