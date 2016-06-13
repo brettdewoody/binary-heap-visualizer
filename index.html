@@ -3,32 +3,15 @@
   <head>
     <meta charset="UTF-8">
     <title>Binary Tree Visualizer</title>
-    <style>
-      html,
-      body,
-      #chart {
-          width: 100%;
-          height: 100%;
-      }
-
-      /* SVG styling */
-      svg {
-        width: 100%;
-        height: 100%;
-        font-family: helvetica, sans-serif;
-      }
-
-      path, line {
-        stroke: #777;
-      }
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/app.css">
   </head>
   <body>
 
     <div id="controls">
-      <input type="number" step="1" id="pushVal"><button onClick="binaryheaptree.push(Number(document.getElementById('pushVal').value)); visualize();">Push</button>
-      <button onClick="binaryheaptree.pop(); visualize()">Pop</button>
+      <input id="controls-input" type="number" step="1" value="0">
+      <button id="controls-push" onClick="binaryheaptree.push(Number(document.getElementById('controls-input').value)); visualize();">Push</button>
+      <button id="controls-pop" onClick="alert('The popped value is ' + binaryheaptree.pop()); visualize()">Pop</button>
+      <button id="controls-clear" onClick="binaryheaptree.clear(); visualize()">Clear</button>
     </div>
 
     <div id="chart">

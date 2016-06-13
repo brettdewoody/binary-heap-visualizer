@@ -1,0 +1,64 @@
+html,
+body,
+#chart {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* SVG styling */
+svg {
+  width: 100%;
+  height: 100%;
+  font-family: helvetica, sans-serif;
+}
+
+#controls {
+  width: 100%;
+  height: 41px;
+  position: fixed;
+  background-color: rgba(12, 13, 14, 0.862745);
+}
+
+#controls-input,
+#controls-pop,
+#controls-push,
+#controls-clear {
+  height: 27px;
+  margin-top: 7px;
+  border: 0;
+  padding: 0 10px;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 14px;
+  outline: none;
+  line-height: 27px;
+  color: #FFFFFF;
+  transition: all 0.1s linear;
+}
+
+#controls-input {
+  margin-right: 0;
+  margin-left: 10px;
+  color: #222222;
+  margin-right: -4px;
+  width: 60px;
+}
+
+#controls-push {
+  margin-left: 0px;
+  margin-right: 10px;
+}
+
+#controls-clear {
+  float: right;
+  margin-right: 10px;
+  background-color: rgb(159, 166, 173);
+}
+
+#controls-pop:hover,
+#controls-push:hover,
+#controls-clear:hover {
+  cursor: pointer;
+  background-color: rgb(246, 156, 85);
+}

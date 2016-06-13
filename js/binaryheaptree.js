@@ -87,13 +87,6 @@ BinaryHeapTree.prototype = {
     }
   },
 
-  // Swaps two nodes given their indexes
-  swap: function (index1, index2) {
-    var value1 = this.tree[index1];
-    this.tree[index1] = this.tree[index2];
-    this.tree[index2] = value1;
-  },
-
   // Returns the children of a node
   children: function (index) {
     var children = [];
@@ -109,5 +102,17 @@ BinaryHeapTree.prototype = {
     }
 
     return children;
+  },
+
+  // Swaps two nodes given their indexes
+  swap: function (index1, index2) {
+    var value1 = this.tree[index1];
+    this.tree[index1] = this.tree[index2];
+    this.tree[index2] = value1;
+  },
+
+  // Clear the tree
+  clear: function () {
+    this.tree = [];
   }
 }

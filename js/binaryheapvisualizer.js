@@ -12,35 +12,6 @@ var BinaryHeapVisualizer = function (element) {
 }
 
 BinaryHeapVisualizer.prototype = {
-  formatHeap : function(binaryheaptree) {
-    function addChildren(node, index) {
-
-      var children = binaryheaptree.children(index);
-
-      if (children) {
-        for (var i = 0; i < children.length; i++) {
-          node.children.push({
-            value: binaryheaptree.tree[children[i]],
-            children: []
-          });
-
-          addChildren(node.children[0], children[i]);
-        }
-      }
-    }
-
-    var nodeData = [];
-
-    nodeData.push({
-      value: binaryheaptree.tree[0],
-      children: []
-    });
-
-    addChildren(nodeData[0], 0);
-
-    return nodeData;
-  },
-
   drawTree: function (binaryheaptree, index, rootCoords, parentCoords) {
     var root = index || 0
       , children = binaryheaptree.children(root)
@@ -48,10 +19,14 @@ BinaryHeapVisualizer.prototype = {
       , nodeDepth = Math.floor(Math.log2(index+1)) + 1
       , rootCoords = [
         (rootCoords ? rootCoords[0] : window.innerWidth/2),
-        (rootCoords ? rootCoords[1] : 50)
+        (rootCoords ? rootCoords[1] : 80)
       ]
       , parentCoords = parentCoords || []
       , radius = 12;
+
+    if (!binaryheaptree.tree.length) {
+      return;
+    }
 
     var node = this.drawNode(binaryheaptree.tree[root], rootCoords, parentCoords, radius);
 
@@ -68,8 +43,8 @@ BinaryHeapVisualizer.prototype = {
 
   drawNode: function (value, coords, parentCoords, radius) {
     var node = this.container.append("g")
-      , x = (coords.length ? coords[0] : window.innerWidth/2)
-      , y = (coords.length ? coords[1] : 50)
+      , x = coords[0]
+      , y = coords[1]
       , coords = coords || []
       , color = "#000000";
 
@@ -82,7 +57,7 @@ BinaryHeapVisualizer.prototype = {
         .attr("y2", coords[1])
         .attr("stroke-width", 3)
         .attr("stroke", color)
-        .attr("opacity", 0.7);
+        .attr("opacity", 0.3);
     }
 
     var circle = node
