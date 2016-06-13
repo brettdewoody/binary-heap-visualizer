@@ -7,11 +7,14 @@
   </head>
   <body>
 
-    <div id="controls">
-      <input id="controls-input" type="number" step="1" value="0">
-      <button id="controls-push" onClick="binaryheaptree.push(Number(document.getElementById('controls-input').value)); visualize();">Push</button>
-      <button id="controls-pop" onClick="alert('The popped value is ' + binaryheaptree.pop()); visualize()">Pop</button>
-      <button id="controls-clear" onClick="binaryheaptree.clear(); visualize()">Clear</button>
+    <div class="controls">
+      <div class="controls-joined">
+        <input class="input" id="controls-input" type="number" step="1" value="0">
+        <button class="button" id="controls-push" onClick="handlePush();">Push</button>
+      </div>
+      <button class="button" id="controls-pop" onClick="handlePop()">Pop</button>
+        <h1 class="title">Min-Heap Binary Tree <i><a href="https://www.cs.cmu.edu/~tcortina/15-121sp10/Unit06B.pdf" target="_blank">i</a></i></h1>
+      <button class="button" id="controls-clear" onClick="handleClear();">Clear</button>
     </div>
 
     <div id="chart">

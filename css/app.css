@@ -14,17 +14,63 @@ svg {
   font-family: helvetica, sans-serif;
 }
 
-#controls {
+i {
+  display: inline-block;
+  border-radius: 9999px;
+  background-color: #FFFFFF;
+  opacity: 0.5;
+  font-style: italic;
+  font-size: 12px;
+  font-family: Georgia;
+  line-height: 21px;
+  position: relative;
+  top: -3px;
+  margin-left: 6px;
+  padding: 0;
+  width: 21px;
+  height: 21px;
+  text-align: center;
+  transition: all 0.1s linear;
+}
+
+i a {
+  color: #222222;
+  text-decoration: none;
+  display: block;
+  line-height: 21px;
+  width: 100%;
+}
+
+i:hover {
+  opacity: 1;
+}
+
+.controls {
   width: 100%;
   height: 41px;
   position: fixed;
   background-color: rgba(12, 13, 14, 0.862745);
 }
 
-#controls-input,
-#controls-pop,
-#controls-push,
-#controls-clear {
+.title {
+  display: inline-block;
+  font-size: 20px;
+  line-height: 41px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 0;
+  color: #FFFFFF;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.controls-joined {
+  float: left;
+}
+
+.input,
+.button {
   height: 27px;
   margin-top: 7px;
   border: 0;
