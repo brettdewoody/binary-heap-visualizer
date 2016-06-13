@@ -10,7 +10,6 @@ BinaryHeapTree.prototype = {
     } else {
       return null;
     }
-
   },
 
   // Returns the index of the right child given a parent index
@@ -63,7 +62,6 @@ BinaryHeapTree.prototype = {
       this.swap(parentIndex, index);
       this.float(parentIndex);
     }
-
   },
 
   // Sink a value to maintain the heap
