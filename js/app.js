@@ -18,6 +18,6 @@ var handleClear = function() {
 }
 
 var visualize = function () {
-  d3.select("svg").selectAll("*").remove();
+  binaryheapvisualizer.clearTree();
   binaryheapvisualizer.drawTree(binaryheaptree, 0);
 };

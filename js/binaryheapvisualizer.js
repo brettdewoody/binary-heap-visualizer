@@ -82,5 +82,9 @@ BinaryHeapVisualizer.prototype = {
     node.moveToBack();
 
     return node;
+  },
+
+  clearTree: function () {
+    d3.select("svg").selectAll("*").remove();
   }
 }
