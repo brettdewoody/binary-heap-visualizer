@@ -64,7 +64,7 @@ Recursively sinks the node at `index` to its appropriate position.
 
 **.children(index)**
 
-Returns an array of length 2 containing the values of the children from the parent `index`.
+Returns an array of length 2 containing the indexes of the children from the parent `index`.
 
 **.swap(index1, index2)**
 
