@@ -1,5 +1,7 @@
 # A visualizer for Min Heap Binary Trees
 
+A min heap binary constructor and visualizer. 
+
 <small>From [Wikipedia](https://en.wikipedia.org/wiki/Binary_heap):</small>
 
 A binary heap is a heap data structure created using a binary tree. It can be seen as a binary tree with two additional constraints:
