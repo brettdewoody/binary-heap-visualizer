@@ -79,7 +79,8 @@ i:hover {
   font-size: 14px;
   outline: none;
   line-height: 27px;
-  color: #FFFFFF;
+  color: #222222;
+  background-color:
   transition: all 0.1s linear;
 }
 
@@ -92,6 +93,7 @@ i:hover {
 }
 
 #controls-push {
+  border-left: 1px solid #eaeaea;
   margin-left: 0px;
   margin-right: 10px;
 }
